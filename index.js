@@ -49,4 +49,4 @@ function operate(number1, number2, operator) {
     }
 }
 
-console.log(operate(900, 10, "-"));
+console.log(operate(900, 10, "*"));
