@@ -31,60 +31,66 @@ function division(...input) {
     return divide;
 }
 
-//  variables for numbers and operator
+// //  variables for numbers and operator
 let calcArray = [];
-let number1 = null;
-let number2 = null;
-let operator = null;
 
 // operate function
-function operate(number1, number2, operator) {
+function operate(number1, operator, number2) {
+    number1 = calcArray[0];
+    operator = calcArray[1];
+    number2 = calcArray[2];
+    console.log(calcArray);
+    console.log(number2);
+
     if (operator === "+") {
         return addition(number1, number2);
     }
     if (operator === "-") {
         return subtraction(number1, number2);
     }
-    if (operator === "*") {
+    if (operator === "x") {
         return multiplication(number1, number2);
     }
-    if (operator === "/") {
+    if (operator === "÷") {
         return division(number1, number2);
     }
 }
-
 
 // numberBtn event listeners
 let allNumberBtn = document.querySelectorAll(".digit.number");
 allNumberBtn.forEach(btn => {
     btn.addEventListener("click", function() {
-        display.textContent += btn.textContent;
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
-            calcArray[0] = display.textContent;
-            number1 = display.textContent;
+            display.textContent += btn.textContent;
+            calcArray[0] = Number(display.textContent);
+            // number1 = Number(display.textContent);
         }
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
-            calcArray[2] = display.textContent;
-            number2 = display.textContent;
+            display.textContent += btn.textContent;
+            calcArray[2] = Number(display.textContent);
+            // number2 = Number(display.textContent);
         }
-        checkValue();
+        operate();
     });
 });
 
+// operator click events
+let allOperatorBtn  = document.querySelectorAll(".digit.operator");
+allOperatorBtn.forEach(btn => {
+    btn.addEventListener("click", function() {
+        display.textContent = "";
+        calcArray[1] = btn.textContent;
+        operator = btn.textContent;
+        operate();
+    });
+});
 
-
-// function to check value after click event
-function  checkValue() {
-    console.log(display.textContent);
-    console.log(calcArray);
-    console.log(number1);
-    // console.log(number2);
-}
-
-
-
-
-
-
-
+//Operate function
+const operateSign = document.querySelector(".digit.operate");
+operateSign.addEventListener("click", function() {
+    if (calcArray.length === 3) {
+        let result = operate();
+        display.textContent = result;
+    }
+});
 
