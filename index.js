@@ -31,7 +31,7 @@ function division(...input) {
     return divide;
 }
 
-// Array that stores number1, operator and number2
+// Array stores number1, operator and number2 after button clicks
 let calcArray = [];
 
 // Final operate function
@@ -40,6 +40,7 @@ function operate(number1, operator, number2) {
     operator = calcArray[1];
     number2 = calcArray[2];
     console.log(calcArray);
+    console.log(number1);
     console.log(number2);
 
     if (operator === "+") {
@@ -91,4 +92,3 @@ operateSign.addEventListener("click", function() {
         display.textContent = result;
     }
 });
-
