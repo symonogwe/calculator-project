@@ -31,10 +31,10 @@ function division(...input) {
     return divide;
 }
 
-// //  variables for numbers and operator
+// Array that stores number1, operator and number2
 let calcArray = [];
 
-// operate function
+// Final operate function
 function operate(number1, operator, number2) {
     number1 = calcArray[0];
     operator = calcArray[1];
@@ -56,19 +56,17 @@ function operate(number1, operator, number2) {
     }
 }
 
-// numberBtn event listeners
+// Number buttons event listeners
 let allNumberBtn = document.querySelectorAll(".digit.number");
 allNumberBtn.forEach(btn => {
     btn.addEventListener("click", function() {
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
             display.textContent += btn.textContent;
             calcArray[0] = Number(display.textContent);
-            // number1 = Number(display.textContent);
         }
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
             display.textContent += btn.textContent;
             calcArray[2] = Number(display.textContent);
-            // number2 = Number(display.textContent);
         }
         operate();
     });
