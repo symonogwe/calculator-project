@@ -79,19 +79,19 @@ allOperatorBtn.forEach(btn => {
     btn.addEventListener("click", function() {
         display.textContent = "";
         calcArray[1] = btn.textContent;
-        operator = btn.textContent;
         operate();
     });
 });
 
-//Operate function
+//Operate(=) function
 const operateSign = document.querySelector(".digit.operate");
 operateSign.addEventListener("click", function() {
     if (calcArray.length === 3) {
         let result = operate();
         display.textContent = result;
         calcArray.length = 0;
-        console.log(calcArray);
+        console.log(calcArray.length);
         calcArray[0] = result;
+        console.log(calcArray);
     }
 });
