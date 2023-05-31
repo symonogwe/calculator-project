@@ -90,5 +90,8 @@ operateSign.addEventListener("click", function() {
     if (calcArray.length === 3) {
         let result = operate();
         display.textContent = result;
+        calcArray.length = 0;
+        console.log(calcArray);
+        calcArray[0] = result;
     }
 });
