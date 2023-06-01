@@ -10,7 +10,26 @@ clearBtn.addEventListener("click", function() {
     calcArray.length = 0;
     display.textContent = "";
     displayParagraph.textContent = "";
-})
+    decimalBtn.textContent = "."
+});
+
+// Decimal button selector
+const decimalBtn = document.querySelector(".digit.decimal");
+decimalBtn.addEventListener("click", function () {
+    if (calcArray[1] === undefined && calcArray[2] === undefined) {
+        display.textContent += decimalBtn.textContent;
+        disableDecimal();
+    }
+    if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
+        display.textContent += decimalBtn.textContent;
+        disableDecimal();
+    }
+});
+
+// disableDecimal function
+function disableDecimal() {
+    decimalBtn.textContent = "";
+}
 
 // Global result variable
 let result = null;
@@ -85,6 +104,7 @@ allNumberBtn.forEach(btn => {
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
             display.textContent += btn.textContent;
             calcArray[0] = Number(display.textContent);
+            console.log(typeof calcArray[0]);
         }
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
             displayParagraph.textContent = "";
@@ -111,8 +131,9 @@ allOperatorBtn.forEach(btn => {
             console.log(calcArray);
         }else {
             display.textContent = "";
-            displayParagraph.textContent = btn.textContent
+            displayParagraph.textContent = btn.textContent;
             display.appendChild(displayParagraph);
+            decimalBtn.textContent = ".";
             calcArray[1] = btn.textContent;
         }
         operate();
