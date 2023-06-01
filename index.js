@@ -55,7 +55,11 @@ function operate(number1, operator, number2) {
         return multiplication(number1, number2);
     }
     if (operator === "÷") {
-        return division(number1, number2);
+        if (number2 === 0) {
+            return display.textContent = "Error";
+        }else {
+            return division(number1, number2);
+        }
     }
 }
 
