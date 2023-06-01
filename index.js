@@ -148,6 +148,7 @@ operateSign.addEventListener("click", function() {
         display.textContent = result;
         calcArray.length = 0;
         calcArray[0] = result;
+        decimalBtn.textContent = "."
         console.log(result);
         console.log(calcArray);
     }
