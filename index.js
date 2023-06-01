@@ -1,7 +1,16 @@
 
 // Document query selectors
+// Display selectors
 const display = document.getElementById("display");
 let displayParagraph = document.createElement("p");
+
+// AC button selector
+const clearBtn = document.querySelector(".digit.clear");
+clearBtn.addEventListener("click", function() {
+    calcArray.length = 0;
+    display.textContent = "";
+    displayParagraph.textContent = "";
+})
 
 // Global result variable
 let result = null;
