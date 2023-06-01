@@ -1,6 +1,10 @@
 
 // Document query selectors
 const display = document.getElementById("display");
+let displayParagraph = document.createElement("p");
+
+// Global result variable
+let result = null;
 
 // simple operator functions
 function addition(...input) {
@@ -40,8 +44,6 @@ function operate(number1, operator, number2) {
     operator = calcArray[1];
     number2 = calcArray[2];
     console.log(calcArray);
-    console.log(number1);
-    console.log(number2);
 
     if (operator === "+") {
         return addition(number1, number2);
@@ -62,24 +64,45 @@ let allNumberBtn = document.querySelectorAll(".digit.number");
 allNumberBtn.forEach(btn => {
     btn.addEventListener("click", function() {
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
-            display.textContent += btn.textContent;
+            displayParagraph.textContent += btn.textContent;
+            display.appendChild(displayParagraph);
             calcArray[0] = Number(display.textContent);
         }
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
+            displayParagraph.textContent = "";
             display.textContent += btn.textContent;
+            // display.removeChild(displayParagraph);
+            // displayParagraph.textContent += btn.textContent;
+            // display.appendChild(displayParagraph);
             calcArray[2] = Number(display.textContent);
         }
         operate();
     });
 });
 
-// operator click events
+// operator click events(+, -, /, *)
 let allOperatorBtn  = document.querySelectorAll(".digit.operator");
 allOperatorBtn.forEach(btn => {
     btn.addEventListener("click", function() {
-        display.textContent = "";
-        calcArray[1] = btn.textContent;
-        operate();
+        if (calcArray.length === 3) {
+            result = operate();
+            display.textContent = "";
+            displayParagraph.textContent = result;
+            display.appendChild(displayParagraph);
+            // display.textContent = result;
+            calcArray.length = 0;
+            console.log(calcArray);
+            calcArray[0] = result;
+            calcArray[1] = btn.textContent;
+            console.log(calcArray);
+        }else {
+            display.textContent = "";
+            // display.removeChild(displayParagraph);
+            displayParagraph.textContent = btn.textContent
+            display.appendChild(displayParagraph);
+            calcArray[1] = btn.textContent;
+            operate();
+        }
     });
 });
 
@@ -87,7 +110,7 @@ allOperatorBtn.forEach(btn => {
 const operateSign = document.querySelector(".digit.operate");
 operateSign.addEventListener("click", function() {
     if (calcArray.length === 3) {
-        let result = operate();
+        result = operate();
         display.textContent = result;
         calcArray.length = 0;
         console.log(calcArray.length);
@@ -95,3 +118,6 @@ operateSign.addEventListener("click", function() {
         console.log(calcArray);
     }
 });
+
+
+// Bug is at numberBtn. Number 2 is chained together with result
