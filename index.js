@@ -70,8 +70,7 @@ allNumberBtn.forEach(btn => {
             console.log(calcArray);
         }
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
-            displayParagraph.textContent += btn.textContent;
-            display.appendChild(displayParagraph);
+            display.textContent += btn.textContent;
             calcArray[0] = Number(display.textContent);
         }
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
