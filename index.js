@@ -63,6 +63,12 @@ function operate(number1, operator, number2) {
 let allNumberBtn = document.querySelectorAll(".digit.number");
 allNumberBtn.forEach(btn => {
     btn.addEventListener("click", function() {
+        if (calcArray[0] === result && calcArray.length === 1) {
+            calcArray.length = 0;
+            display.textContent = "";
+            console.log(btn.textContent);
+            console.log(calcArray);
+        }
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
             displayParagraph.textContent += btn.textContent;
             display.appendChild(displayParagraph);
@@ -71,9 +77,6 @@ allNumberBtn.forEach(btn => {
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
             displayParagraph.textContent = "";
             display.textContent += btn.textContent;
-            // display.removeChild(displayParagraph);
-            // displayParagraph.textContent += btn.textContent;
-            // display.appendChild(displayParagraph);
             calcArray[2] = Number(display.textContent);
         }
         operate();
@@ -89,7 +92,6 @@ allOperatorBtn.forEach(btn => {
             display.textContent = "";
             displayParagraph.textContent = result;
             display.appendChild(displayParagraph);
-            // display.textContent = result;
             calcArray.length = 0;
             console.log(calcArray);
             calcArray[0] = result;
@@ -97,12 +99,11 @@ allOperatorBtn.forEach(btn => {
             console.log(calcArray);
         }else {
             display.textContent = "";
-            // display.removeChild(displayParagraph);
             displayParagraph.textContent = btn.textContent
             display.appendChild(displayParagraph);
             calcArray[1] = btn.textContent;
-            operate();
         }
+        operate();
     });
 });
 
@@ -113,11 +114,9 @@ operateSign.addEventListener("click", function() {
         result = operate();
         display.textContent = result;
         calcArray.length = 0;
-        console.log(calcArray.length);
         calcArray[0] = result;
+        console.log(result);
         console.log(calcArray);
     }
 });
 
-
-// Bug is at numberBtn. Number 2 is chained together with result
