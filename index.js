@@ -13,6 +13,19 @@ clearBtn.addEventListener("click", function() {
     decimalBtn.textContent = "."
 });
 
+// // C (delete) button selector
+// const deleteBtn = document.querySelector(".digit.delete");
+// deleteBtn.addEventListener("click", function() {
+//     let newArr = calcArray.join("");
+//     console.log(newArr);
+//     let splitArr = newArr.split("");
+//     console.log(splitArr);
+//     splitArr.pop();
+//     calcArray = [...splitArr];
+//     display.textContent = calcArray;
+//     console.log(calcArray);
+// });
+
 // Decimal button selector
 const decimalBtn = document.querySelector(".digit.decimal");
 decimalBtn.addEventListener("click", function () {
@@ -37,30 +50,30 @@ let result = null;
 // simple operator functions
 function addition(...input) {
   const sum = input.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
+    return (accumulator * 10) + (currentValue * 10);
   });
-  return sum;
+  return sum/10;
 }
 
 function subtraction(...input) {
     const subtract = input.reduce((accumulator, currentValue) => {
-        return accumulator - currentValue;
+        return (accumulator * 10) - (currentValue * 10);
     });
-    return subtract;
+    return subtract/10;
 }
 
 function multiplication(...input) {
     const multiply = input.reduce((accumulator, currentValue) => {
-        return accumulator * currentValue;
+        return (accumulator * 10) * (currentValue * 10);
     });
-    return multiply;
+    return multiply/10;
 }
 
 function division(...input) {
     const divide = input.reduce((accumulator, currentValue) => {
-        return accumulator / currentValue;
+        return (accumulator * 10) / (currentValue * 10);
     });
-    return divide;
+    return divide/10;
 }
 
 // Array stores number1, operator and number2 after button clicks
