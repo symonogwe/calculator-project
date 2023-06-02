@@ -44,7 +44,7 @@ body {
 
 .digit.clear,
 .digit.delete {
-    background-color: orangered;
+    background-color: #e76f51;
     color: azure;
 }
 
@@ -54,12 +54,12 @@ body {
 }
 
 .digit.operator {
-    background-color: cornflowerblue;
+    background-color: #2a9d8f;
     color: azure;
 }
 
 .digit.number {
-    background-color: teal;
+    background-color: #264653;
     color: azure;
 }
 
@@ -69,6 +69,6 @@ body {
 }
 
 .digit.operate {
-    background-color: lightcoral;
+    background-color: #264653;
     color: azure;
 }
