@@ -80,14 +80,14 @@ function multiplication(...input) {
     const multiply = input.reduce((accumulator, currentValue) => {
         return (accumulator * 10) * (currentValue * 10);
     });
-    return multiply/10;
+    return multiply/100;
 }
 
 function division(...input) {
     const divide = input.reduce((accumulator, currentValue) => {
         return (accumulator * 10) / (currentValue * 10);
     });
-    return divide/10;
+    return divide ;
 }
 
 // Array stores number1, operator and number2 after button clicks
