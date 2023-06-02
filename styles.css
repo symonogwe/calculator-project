@@ -41,3 +41,34 @@
     font-size: 25px;
     border-radius: 5px;
 }
+
+.digit.clear,
+.digit.delete {
+    background-color: orangered;
+    color: azure;
+}
+
+.digit.percent {
+    background-color: lavender;
+    color: black;
+}
+
+.digit.operator {
+    background-color: cornflowerblue;
+    color: azure;
+}
+
+.digit.number {
+    background-color: teal;
+    color: azure;
+}
+
+.digit.negative,
+.digit.decimal {
+    background-color: lavender;
+}
+
+.digit.operate {
+    background-color: lightcoral;
+    color: azure;
+}
