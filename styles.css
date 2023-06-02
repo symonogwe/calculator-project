@@ -25,6 +25,7 @@ body {
     color: white;
     background-color: darkgrey;
     padding: 5px;
+    font-size: 25px;
 }
 
 #digits-container {
