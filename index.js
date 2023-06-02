@@ -98,7 +98,6 @@ function operate(number1, operator, number2) {
     number1 = calcArray[0];
     operator = calcArray[1];
     number2 = calcArray[2];
-    console.log(calcArray);
 
     if (operator === "+") {
         return addition(number1, number2);
@@ -131,7 +130,6 @@ allNumberBtn.forEach(btn => {
         if (calcArray[1] === undefined && calcArray[2] === undefined) {
             display.textContent += btn.textContent;
             calcArray[0] = Number(display.textContent);
-            console.log(typeof calcArray[0]);
         }
         if (calcArray[0] !== undefined && calcArray[1] !== undefined) {
             displayParagraph.textContent = "";
@@ -175,8 +173,6 @@ operateSign.addEventListener("click", function() {
         display.textContent = result;
         calcArray.length = 0;
         calcArray[0] = result;
-        decimalBtn.textContent = "."
-        console.log(result);
-        console.log(calcArray);
+        decimalBtn.textContent = ".";
     }
 });
