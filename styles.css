@@ -3,12 +3,6 @@
     box-sizing: border-box;
 }
 
-/* body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 #main {
     margin-top: 100px;
     display: flex;
@@ -19,7 +13,7 @@
 #calc-container {
     width: 410px;
     height: 577px;
-    border: 4px solid black;
+    border: 4px solid lavender;
 }
 
 #display {
