@@ -13,18 +13,32 @@ clearBtn.addEventListener("click", function() {
     decimalBtn.textContent = "."
 });
 
-// // C (delete) button selector
-// const deleteBtn = document.querySelector(".digit.delete");
-// deleteBtn.addEventListener("click", function() {
-//     let newArr = calcArray.join("");
-//     console.log(newArr);
-//     let splitArr = newArr.split("");
-//     console.log(splitArr);
-//     splitArr.pop();
-//     calcArray = [...splitArr];
-//     display.textContent = calcArray;
-//     console.log(calcArray);
-// });
+// C (delete) button selector
+const deleteBtn = document.querySelector(".digit.delete");
+deleteBtn.addEventListener("click", function() {
+    if (calcArray.length === 1) {
+        let newArr = calcArray.join("");
+        let splitArr = newArr.split("");
+        splitArr.pop();
+        let finalStr = +(splitArr.join(""));
+        display.textContent = finalStr;
+        calcArray.pop();
+        calcArray.push(finalStr);
+    }
+    if (calcArray.length === 2) {
+        calcArray.pop();
+        display.textContent = calcArray
+    }
+    if (calcArray.length === 3) {
+        let popped = calcArray.pop();
+        let newStr = popped.toString();
+        let newArr = newStr.split("");
+        newArr.pop();
+        let newNumber = newArr.join("");
+        display.textContent = newNumber;
+        calcArray.push(newNumber);
+    }
+});
 
 // Decimal button selector
 const decimalBtn = document.querySelector(".digit.decimal");
@@ -166,4 +180,3 @@ operateSign.addEventListener("click", function() {
         console.log(calcArray);
     }
 });
-
